@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     resolve: {
@@ -27,7 +28,22 @@ module.exports = {
                         extends: path.join(__dirname, '.babelrc')
                     }
                 }
-            }
+            },
+            {
+                test: /\.sass$/,
+                use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [{
+                        loader: "css-loader", options: {
+                            sourceMap: true
+                        }
+                    }, {
+                        loader: "sass-loader", options: {
+                            sourceMap: true
+                        }
+                    }]
+                }))
+            },
         ]
     },
     devServer: {
@@ -39,5 +55,9 @@ module.exports = {
                 changeOrigin: true
               }
         }
-    }
-}
+    },
+    devtool: "source-map",
+    plugins: [
+        new ExtractTextPlugin({filename: 'style.css', allChunks: true})
+    ]
+};

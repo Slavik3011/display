@@ -1,16 +1,14 @@
 import React from 'react';
-import axios from 'axios';
+
+import Header from './header/Header';
+import './app.sass';
 
 
 export default class App extends React.Component {
-	componentDidMount() {
-		axios.get('/api')
-	}
-
     render() {
         return (
             <div>
-                <h1>Hello world!!</h1>
+                <Header />
             </div>
         )
     }
