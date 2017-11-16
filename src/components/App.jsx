@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import Header from './header/Header';
 import Nav from './nav/Nav';
 import Home from './home/Home';
-import Contact from './contact/Contact';
+import Contact from './contactPage/ContactPage';
 import Footer from './footer/Footer';
 import 'normalize.css';
 import './app.sass';
