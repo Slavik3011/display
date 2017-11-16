@@ -1,0 +1,18 @@
+.filters
+    display: flex
+    align-items: center
+    margin: 45px 0
+    li
+        color: #8a8888
+        font-family: "Novecentowide - Demi Bold"
+        font-size: 18px
+        font-weight: 400
+        cursor: pointer
+        text-transform: uppercase
+        &.active
+            color: #2ecc71
+            &:before
+                color: #8a8888
+        + li:before
+            content: '/'
+            margin: 0 5px

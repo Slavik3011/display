@@ -5,7 +5,10 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        alias: {
+            actions: path.resolve(__dirname, 'src/actions')
+        }
     },
     entry: [
         'babel-polyfill',

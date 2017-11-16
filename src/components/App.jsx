@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Header from './header/Header';
 import Nav from './nav/Nav';
@@ -9,8 +10,14 @@ import Footer from './footer/Footer';
 import 'normalize.css';
 import './app.sass';
 
+import { loadProjects } from 'actions';
 
-export default class App extends React.Component {
+
+class App extends React.Component {
+    componentDidMount() {
+        this.props.loadProjects()
+    }
+
     render() {
         return (
             <div>
@@ -23,4 +30,8 @@ export default class App extends React.Component {
         )
     }
 }
+
+export default connect( null, {
+    loadProjects
+} )(App)
 

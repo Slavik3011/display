@@ -10,7 +10,7 @@ export default () => (
         <PreHeader title="Got a Question or INquiry?" />
         <MyMapComponent containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}/>
-        <section className="contact">
+        <section className="contact" id="contact">
             <div className="container">
                 <ContactForm />
             </div>
